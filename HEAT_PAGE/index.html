@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Numerical Heat Equation</title>
+
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+<script src="classes/p5.js"></script>
+</head>
+
+
+<body>
+  
+  <div class='title'>
+    <h1>Solving Heat Equation using Finite Differences</h1>
+  </div>
+  
+  <div class='image-container'><img src="figures/schema.png" class="my-image"></div>
+  
+
+
+  <div class='paragraph'>
+
+    <h2>Heat Equation</h2>
+
+    <p>The heat equation on a plan $\mathcal{S}$ is defined as :
+    <br>
+    $$\dfrac{\partial T}{\partial t}=D\left[\dfrac{\partial^2T}{\partial x^2}+\dfrac{\partial^2T}{\partial y^2}\right]+Q(x, y)$$
+    <br>
+    where $D$ is a constant depending on the wall properties and $g$ a function representing a power source applied in the wall.
+    </p>
+    
+    <h2>Finite Difference</h2>
+    
+    <p>
+     Considering the wall $\mathcal{S}$ of width $L$ and height $H$ (see. previous figure) we can discretize the domain in $N_x\times N_y$ points such as $\Delta x=\dfrac{L}{N_x}$ and $\Delta y=\dfrac{H}{N_y}$. The heat equation for each point inside the domain we can write :
+     <br>
+     $$T_{i,j}^{n+1}=T_{i, j}^n + \alpha \left[T_{i, j-1}^n+T_{i, j+1}^n-2T_{i, j}^n\right]+\beta \left[T_{i-1, j}^n+T_{i+1, j}^n-2T_{i, j}^n\right]+\Delta t Q_{i, j}^{n}$$
+     <br>
+     where :
+     <br>
+     $$\alpha=D\dfrac{\Delta t}{\Delta x^2} \text{ et } \beta=D\dfrac{\Delta t}{\Delta y^2}$$
+    </p>
+
+    <h2>Boundaries conditions</h2>
+    <p>It exists different kinds of boundary conditions :
+
+
+      <br>
+      
+
+    </p>
+
+    <h2>Simulations</h2>
+
+      <p>
+        
+        <br>
+
+        <br>
+ 
+
+
+      </p>
+
+  </div>
+
+ 
+
+  
+    
+  <script src="anim/matrix.js"></script>
+  <script src="anim/scene.js"></script>
+  <script src="anim/camera.js"></script>
+  <script src="anim/heat.js"></script>
+  <script src="anim/controller.js"></script>
+  <div class='container'>
+    <div id='widgets'></div>
+    <div id="p5sketch"><script src="anim/sketch.js"></script></div> 
+  </div>
+
+
+</body>
+
+
